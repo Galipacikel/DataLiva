@@ -1,10 +1,13 @@
 masraf_app
+
 Masraf Takip Uygulaması – Flutter ile Geliştirilmiş Modern Mock Expense Tracker
 
 🚀 Proje Hakkında
+
 Bu proje, kullanıcıların masraf girişlerini kolayca yapabildiği, masraflarını takip edebildiği ve sahte (mock) onay sürecini deneyimleyebildiği modern bir Flutter uygulamasıdır. Uygulama, tamamen frontend odaklıdır ve gerçek bir backend bağlantısı olmadan, kullanıcı deneyimini ve arayüz tasarımını ön plana çıkarır.
 
 🛠️ Kullanılan Teknolojiler
+
 Flutter (Dart)
 
 Modern UI/UX tasarımı
