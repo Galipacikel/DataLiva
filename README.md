@@ -6,12 +6,17 @@ Bu proje, kullanıcıların masraf girişlerini kolayca yapabildiği, masraflar�
 
 🛠️ Kullanılan Teknolojiler
 Flutter (Dart)
+
 Modern UI/UX tasarımı
+
 State management: setState (ileride Provider, Bloc gibi yapılar entegre edilebilir)
+
 Mock veri ve sahte login/onay akışı
+
 
 📱 Uygulama Özellikleri
 Modern Login Ekranı:
+
 Kullanıcı adı ve şifre ile giriş, sadece belirlenen kullanıcı için giriş izni.
 Şık ve kullanıcı dostu arayüz.
 Kayıt (Sign Up) ve Şifre Sıfırlama (Forgot Password):
