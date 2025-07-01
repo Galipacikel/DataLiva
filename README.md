@@ -33,29 +33,44 @@ Responsive ve Modern Tasarım:
 Tüm ekranlarda renk uyumu, ikon kullanımı, köşeli kutular ve modern butonlar.
 
 🧑‍💻 Kurulum ve Çalıştırma
+
 Projeyi Klonla:
+
 Apply to login_page.d...
+
 Bağımlılıkları Yükle:
+
 Apply to login_page.d...
+
 Uygulamayı Başlat:
+
 Apply to login_page.d...
+
 
 🔑 Demo Kullanıcı Bilgileri
 Kullanıcı Adı: galip
+
 Şifre: 1234
+
 Sadece bu bilgilerle giriş yapılabilir.
 
 📂 Klasör Yapısı
 lib/login_page.dart – Giriş ekranı
+
 lib/home_page.dart – Ana panel
+
 lib/expense_form_page.dart – Masraf girişi
+
 lib/approval_page.dart – Masraf onay ekranı
+
 lib/main.dart – Uygulama başlangıcı ve yönlendirme
 
 📌 Notlar
 Uygulama tamamen mock (sahte) veri ile çalışır, gerçek bir backend bağlantısı yoktur.
+
 UI/UX odaklı geliştirilmiştir, kod yapısı ve tasarım kolayca geliştirilebilir ve ölçeklenebilir.
 
 📝 Katkı ve Lisans
 Katkıda bulunmak isterseniz, lütfen bir pull request gönderin.
+
 Bu proje MIT lisansı ile lisanslanmıştır.
