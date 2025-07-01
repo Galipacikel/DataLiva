@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FA),
+      backgroundColor: const Color(0xFFFFF8F3),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -50,11 +50,11 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 40),
-                Icon(Icons.account_balance_wallet_rounded, size: 80, color: Colors.blue[700]),
+                Icon(Icons.account_balance_wallet_rounded, size: 80, color: Colors.deepOrange),
                 const SizedBox(height: 32),
                 const Text(
                   'Welcome Back!',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 const Text(
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextField(
                   controller: _usernameController,
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.person_outline),
+                    prefixIcon: const Icon(Icons.person_outline, color: Colors.deepOrange),
                     hintText: 'Enter your username',
                     filled: true,
                     fillColor: Colors.white,
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: _passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.lock_outline),
+                    prefixIcon: const Icon(Icons.lock_outline, color: Colors.deepOrange),
                     hintText: 'Enter your password',
                     filled: true,
                     fillColor: Colors.white,
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
                     ),
-                    suffixIcon: const Icon(Icons.visibility_off_outlined),
+                    suffixIcon: const Icon(Icons.visibility_off_outlined, color: Colors.deepOrange),
                   ),
                 ),
                 const SizedBox(height: 28),
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     onPressed: _login,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[700],
+                      backgroundColor: Colors.deepOrange,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: const Text(
                       'Log In',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
                 ),
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: _goToSignUp,
                       child: const Text(
                         'Sign up',
-                        style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: _goToForgotPassword,
                   child: const Text(
                     'Forgot password?',
-                    style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline),
+                    style: TextStyle(color: Colors.deepOrange, decoration: TextDecoration.underline),
                   ),
                 ),
                 const SizedBox(height: 40),

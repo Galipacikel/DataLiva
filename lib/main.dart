@@ -4,6 +4,8 @@ import 'login_page.dart';
 import 'home_page.dart';
 import 'expense_form_page.dart';
 import 'approval_page.dart';
+import 'reports_panel/reports_page.dart';
+import 'profile_panel/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +37,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/expense_form': (context) => const ExpenseFormPage(),
         '/approval': (context) => const ApprovalPage(),
+        '/reports': (context) => const ReportsPage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

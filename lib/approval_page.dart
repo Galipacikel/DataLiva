@@ -25,91 +25,137 @@ class ApprovalPage extends StatelessWidget {
         },
       ];
 
-  void _showSnackBar(BuildContext context, String message) {
+  void _showSnackBar(BuildContext context, String message, Color color, IconData icon) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
+      SnackBar(
+        content: Row(
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 12),
+            Text(
+              message,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        backgroundColor: color,
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        duration: const Duration(seconds: 2),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text('Masraf Onay'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
+        title: const Text('Masraf Onay', style: TextStyle(fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.blue,
+        elevation: 0.5,
+        centerTitle: true,
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         itemCount: _mockExpenses.length,
         itemBuilder: (context, index) {
           final expense = _mockExpenses[index];
-          return Card(
-            margin: const EdgeInsets.only(bottom: 20),
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+          final Color cardColor = Colors.blue[700]!;
+          final IconData cardIcon = expense['category'] == 'Yemek'
+              ? Icons.restaurant
+              : expense['category'] == 'Ulaşım'
+                  ? Icons.directions_car
+                  : expense['category'] == 'Konaklama'
+                      ? Icons.hotel
+                      : Icons.receipt;
+          return Container(
+            margin: const EdgeInsets.only(bottom: 24),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.06),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        expense['category'] == 'Yemek'
-                            ? Icons.restaurant
-                            : expense['category'] == 'Ulaşım'
-                                ? Icons.directions_car
-                                : expense['category'] == 'Konaklama'
-                                    ? Icons.hotel
-                                    : Icons.receipt,
-                        color: Colors.deepPurple,
-                        size: 32,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: cardColor.withOpacity(0.12),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        child: Icon(cardIcon, color: cardColor, size: 32),
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 16),
                       Text(
                         '${expense['amount']} TL',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
+                          color: cardColor,
                         ),
                       ),
                       const Spacer(),
                       Text(
                         '${expense['date'].day}.${expense['date'].month}.${expense['date'].year}',
-                        style: const TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   Text(
                     expense['desc'],
                     style: const TextStyle(fontSize: 16),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 18),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      ElevatedButton.icon(
-                        icon: const Icon(Icons.check),
-                        label: const Text('Onayla'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          foregroundColor: Colors.white,
+                      SizedBox(
+                        height: 44,
+                        child: ElevatedButton.icon(
+                          icon: const Icon(Icons.check),
+                          label: const Text('Onayla', style: TextStyle(fontWeight: FontWeight.bold)),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green[600],
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 0,
+                          ),
+                          onPressed: () => _showSnackBar(context, 'Masraf onaylandı!', Colors.green[700]!, Icons.check_circle),
                         ),
-                        onPressed: () => _showSnackBar(context, 'Masraf onaylandı!'),
                       ),
                       const SizedBox(width: 12),
-                      ElevatedButton.icon(
-                        icon: const Icon(Icons.close),
-                        label: const Text('Reddet'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.redAccent,
-                          foregroundColor: Colors.white,
+                      SizedBox(
+                        height: 44,
+                        child: ElevatedButton.icon(
+                          icon: const Icon(Icons.close),
+                          label: const Text('Reddet', style: TextStyle(fontWeight: FontWeight.bold)),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red[600],
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 0,
+                          ),
+                          onPressed: () => _showSnackBar(context, 'Masraf reddedildi!', Colors.red[700]!, Icons.cancel),
                         ),
-                        onPressed: () => _showSnackBar(context, 'Masraf reddedildi!'),
                       ),
                     ],
                   ),
