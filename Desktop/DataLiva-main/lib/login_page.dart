@@ -16,6 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   final String _validUsername = 'galip';
   final String _validPassword = '1234';
 
+  bool _obscureText = true;
+
   void _login() {
     if (_usernameController.text == _validUsername &&
         _passwordController.text == _validPassword) {
@@ -105,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 8),
                 TextField(
                   controller: _passwordController,
-                  obscureText: true,
+                  obscureText: _obscureText,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(
                       Icons.lock_outline,
@@ -118,9 +120,16 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
                     ),
-                    suffixIcon: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: Colors.deepOrange,
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                        color: Colors.deepOrange,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
                     ),
                   ),
                 ),

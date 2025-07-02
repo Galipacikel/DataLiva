@@ -4,9 +4,10 @@ import 'approval_page.dart';
 import 'expense_form_page.dart';
 import 'reports_page.dart';
 import 'profile_page.dart';
+import 'messages_page.dart';
 
 class MainNavigationPage extends StatefulWidget {
-  const MainNavigationPage({Key? key}) : super(key: key);
+  const MainNavigationPage({super.key});
 
   @override
   State<MainNavigationPage> createState() => _MainNavigationPageState();
@@ -19,6 +20,7 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
     HomePage(),
     ApprovalPage(),
     ExpenseFormPage(),
+    MessagesPage(),
     ReportsPage(),
     ProfilePage(),
   ];
@@ -59,6 +61,10 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.add_circle_outline_rounded),
                 label: 'Add Expense',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.message_rounded),
+                label: 'Messages',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.bar_chart_rounded),

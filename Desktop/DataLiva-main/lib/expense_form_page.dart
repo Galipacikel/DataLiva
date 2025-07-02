@@ -54,7 +54,7 @@ class ExpenseFormPage extends StatelessWidget {
 }
 
 class AddExpensePage extends StatefulWidget {
-  const AddExpensePage({Key? key}) : super(key: key);
+  const AddExpensePage({super.key});
 
   @override
   State<AddExpensePage> createState() => _AddExpensePageState();

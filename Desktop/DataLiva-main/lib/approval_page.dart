@@ -67,11 +67,11 @@ class _ApprovalPageState extends State<ApprovalPage> {
                             children: [
                               CircleAvatar(
                                 backgroundColor: Colors.orange.shade100,
+                                radius: 28,
                                 child: const Icon(
                                   Icons.receipt_long,
                                   color: Colors.orange,
                                 ),
-                                radius: 28,
                               ),
                               const SizedBox(width: 16),
                               Expanded(

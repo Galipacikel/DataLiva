@@ -19,6 +19,8 @@ class Expense {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -133,11 +135,11 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       CircleAvatar(
                                         backgroundColor: Colors.orange.shade100,
+                                        radius: 28,
                                         child: const Icon(
                                           Icons.receipt_long,
                                           color: Colors.orange,
                                         ),
-                                        radius: 28,
                                       ),
                                       const SizedBox(width: 16),
                                       Expanded(
